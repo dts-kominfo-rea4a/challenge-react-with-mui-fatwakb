@@ -1,4 +1,10 @@
-import './App.css';
+import React, { useState } from "react";
+import { Container, Grid } from "@mui/material";
+import "./App.css";
+
+import Header from "./components/Header";
+import ContactForm from "./components/ContactForm";
+import Contact from "./components/Contact";
 
 // Uncomment untuk memuat daftar kontak
 // import contactsJSON from './data/contacts.json';
@@ -10,9 +16,58 @@ const App = () => {
   // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
 
+  const [datas, setDatas] = useState([
+    {
+      name: "Monica",
+      phone: "085367653673",
+      email: "monica@email.com",
+      photo: "http://placekitten.com/500",
+    },
+    {
+      name: "Devi",
+      phone: "084857384793",
+      email: "devi@email.com",
+      photo: "http://placekitten.com/400",
+    },
+    {
+      name: "Withered",
+      phone: "087577588432",
+      email: "withered@email.com",
+      photo: "http://placekitten.com/300",
+    },
+    {
+      name: "Flowers",
+      phone: "088487547211",
+      email: "flowers@email.com",
+      photo: "http://placekitten.com/600",
+    },
+  ]);
+
+  const formHandler = (inputData) => {
+    setDatas([...datas, inputData]);
+  };
+
   return (
-    <div className="App">
-    </div>
+    <Container className="App">
+      <Header />
+      <Grid
+        container
+        spacing={12}
+      >
+        <Grid
+          item
+          xs
+        >
+          <ContactForm fnFormHandler={formHandler} />
+        </Grid>
+        <Grid
+          item
+          xs
+        >
+          <Contact data={datas} />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
