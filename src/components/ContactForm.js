@@ -42,10 +42,10 @@ const ContactForm = ({ fnFormHandler }) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const inputData = {
-      name: event.target.name.value,
-      phone: event.target.phone.value,
-      email: event.target.email.value,
-      photo: event.target.photo.value,
+      name: name,
+      phone: phone,
+      email: email,
+      photo: photo,
     };
     fnFormHandler(inputData);
     setName("");
