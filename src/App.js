@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, List } from "@mui/material";
 import "./App.css";
 
 import Header from "./components/Header";
@@ -64,7 +64,14 @@ const App = () => {
           item
           xs
         >
-          <Contact data={datas} />
+          <List sx={{ width: "100%", maxWidth: 360, bgcolor: "#d7fff6" }}>
+            {datas.map((data) => (
+              <Contact
+                key={data.phone}
+                data={data}
+              />
+            ))}
+          </List>
         </Grid>
       </Grid>
     </Container>
